@@ -1,0 +1,22 @@
+//공통 - 다음 버튼
+@mixin nextBtn {
+  width: 220px;
+  height: 80px;
+  background-color: navy;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  font-size: 120%;
+
+  &:hover {
+    cursor: pointer;
+    color: #fdec6e;
+    text-shadow: 0px 0px 30px #fdec6e;
+    -moz-transition: all 0.2s ease-in;
+    -o-transition: all 0.2s ease-in;
+    -webkit-transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in;
+  }
+}

@@ -1,0 +1,37 @@
+//page layout
+
+//모든 컨텐츠 출력되는 부분 (공통 레이아웃)
+@mixin contents_div {
+  width: 900px;
+  height: 100vh;
+  background-color: antiquewhite;
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+  flex-direction: column;
+  @media (max-width: 480px) {
+    width: 100%;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    background-color: aliceblue;
+  }
+}
+
+body {
+  div {
+    @include contents_div;
+  }
+}
+
+.nextBtnDiv {
+  width: 100%;
+  background-color: yellow;
+  display: flex;
+  justify-content: center;
+}
+.nextBtn {
+  @include nextBtn;
+}
