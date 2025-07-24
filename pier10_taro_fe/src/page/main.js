@@ -1,12 +1,13 @@
 import React, { use } from "react";
 import "../styles/Main.scss";
 import { useNavigate } from "react-router-dom";
+import NextBtn from "../components/nextBtn";
 const Main = () => {
   const navigate = useNavigate();
 
   return (
     <body>
-      <div>
+      <div id="root">
         <div>
           <p>Peir 10 : All My Day</p>
           <p>귀인타로</p>
@@ -14,11 +15,7 @@ const Main = () => {
         <div>
           <p>MAIN IMG.... DENIMALZ...</p>
         </div>
-        <div className="nextBtnDiv">
-          <p className="nextBtn" onClick={() => navigate("/star")}>
-            다음
-          </p>
-        </div>
+        <NextBtn onClick={() => navigate("/star")} innerText="다음" />
       </div>
     </body>
   );

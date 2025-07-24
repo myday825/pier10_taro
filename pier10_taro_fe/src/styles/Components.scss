@@ -20,3 +20,36 @@
     transition: all 0.2s ease-in;
   }
 }
+
+#starAll {
+  background-color: pink;
+  width: 100%;
+  height: 100vh;
+  .starLine {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 30px 100px;
+    box-sizing: border-box;
+    // background-color: palevioletred;
+  }
+  p {
+    width: 100px;
+    height: 100px;
+    background-color: papayawhip;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+// 다음버튼
+.nextBtnDiv {
+  width: 100%;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+}
+.nextBtn {
+  @include nextBtn;
+}
