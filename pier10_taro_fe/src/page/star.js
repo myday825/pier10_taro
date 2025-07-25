@@ -1,9 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import NextBtn from "../components/nextBtn";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+
 const Star = () => {
+  const [star, setStar] = useState();
   const navigate = useNavigate();
+
+  const apiPost = async () => {
+    try {
+      const res = await axios.post("/api/chat", {
+        message: "테스트중",
+      });
+      //   navigate("/end", { state: { result: res.data.result } });
+      console.log("star page", res.data);
+    } catch (err) {
+      console.log("star page / gpt api 요청 실패 > ", err);
+    }
+  };
+
   return (
     <motion.div
       id="root"
@@ -35,7 +51,7 @@ const Star = () => {
           <p>염소자리</p>
         </div>
       </div>
-      <NextBtn onClick={() => navigate("/end")} innerText="다음" />
+      <NextBtn onClick={() => apiPost()} innerText="다음" />
     </motion.div>
   );
 };

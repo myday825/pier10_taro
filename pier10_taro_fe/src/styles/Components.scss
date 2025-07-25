@@ -8,7 +8,8 @@
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-  font-size: 120%;
+  font-size: 180%;
+  font-family: "HancomHoonminjeongeumH";
 
   &:hover {
     cursor: pointer;
@@ -46,7 +47,6 @@
 // 다음버튼
 .nextBtnDiv {
   width: 100%;
-  background-color: #fff;
   display: flex;
   justify-content: center;
 }
