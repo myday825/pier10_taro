@@ -6,8 +6,10 @@ gpt api 를 사용하여 오늘의 별자리 운세를 볼 수 있어요.
 
 결과는 믿거나 말거나😛 운세는 재미로 봐주기🙋‍♀️
 
-🖥️ React
-🖥️ node.js
-🖥️ openai
-🎨 sass
-⌨️ axios
+---
+
+###### 🖥️ React
+###### 🖥️ node.js
+###### 🖥️ openai
+###### 🎨 sass
+###### ⌨️ axios
