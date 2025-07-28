@@ -1,14 +1,64 @@
+#starAll {
+  background-color: pink;
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  text-align: center;
+  place-items: center;
+  font-size: 0.95em;
+  @media (max-width: 480px) {
+    background-color: palevioletred;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  p {
+    width: 100px;
+    height: 100px;
+    background-color: papayawhip;
+    margin: 20px 0 5px;
+    padding: 5px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+      cursor: pointer;
+    }
+    @media (max-width: 400px) {
+      width: 100px;
+    }
+  }
+}
+
+@mixin glowText {
+  font-family: "HancomHoonminjeongeumH";
+  color: #fdec6e;
+  text-shadow: 0px 0px 30px #fdec6e;
+  -moz-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+//귀인타로 로고
+.taroLogo {
+  font-size: 5rem;
+  @include glowText;
+  @media (max-width: 400px) {
+    font-size: 3rem;
+  }
+}
+// 다음버튼
 //공통 - 다음 버튼
 @mixin nextBtn {
-  width: 220px;
-  height: 80px;
-  background-color: navy;
+  width: 180px;
+  height: 60px;
   color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 10px;
-  font-size: 180%;
+  font-size: 1.5rem;
   font-family: "HancomHoonminjeongeumH";
 
   &:hover {
@@ -21,30 +71,6 @@
     transition: all 0.2s ease-in;
   }
 }
-
-#starAll {
-  background-color: pink;
-  width: 100%;
-  height: 100vh;
-  .starLine {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 30px 100px;
-    box-sizing: border-box;
-    // background-color: palevioletred;
-  }
-  p {
-    width: 100px;
-    height: 100px;
-    background-color: papayawhip;
-
-    &:hover {
-      cursor: pointer;
-    }
-  }
-}
-// 다음버튼
 .nextBtnDiv {
   width: 100%;
   display: flex;
@@ -52,4 +78,58 @@
 }
 .nextBtn {
   @include nextBtn;
+}
+
+// 결과창 결과 나오는 div
+.resultStarDiv {
+  width: 60%;
+  height: 50%;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  @media (max-width: 400px) {
+    width: 90%;
+  }
+}
+.resultStarDiv > p {
+  text-align: center;
+  font-weight: bold;
+  @include glowText;
+  font-size: 2rem;
+  margin: 20px 0 0;
+}
+
+.resultLine {
+  margin: 10px 0;
+  font-size: 1.2rem;
+  @media (max-width: 400px) {
+    font-size: 1rem;
+  }
+}
+
+// 별자리 이미지
+.starimgDiv {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+.starImg {
+  width: 100px;
+  height: 100px;
+}
+
+//메인 > 데니멀즈 썸네일
+.main_denimalz {
+  width: 30vw;
+  height: auto;
+  object-fit: cover;
+  @media (max-width: 400px) {
+    width: 90%;
+    height: auto;
+  }
 }

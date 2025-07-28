@@ -4,19 +4,22 @@
 @mixin contents_div {
   width: 800px;
   height: 100vh;
-  background-color: antiquewhite;
+  background-color: #1c1e24;
   display: flex;
-  padding: 20px;
+  padding: 60px;
   box-sizing: border-box;
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
   overflow-y: auto;
+  text-align: center;
+  color: #fff;
   @media (max-width: 480px) {
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     overflow-x: hidden;
-    background-color: aliceblue;
+    padding: 50px 20px;
+    box-sizing: border-box;
   }
 }
 * {
@@ -24,7 +27,7 @@
   padding: 0;
 }
 body {
-  background-color: navy;
+  background-color: #1c1e24;
   display: flex;
   align-items: center;
   justify-content: center;

@@ -3,20 +3,42 @@ import { motion } from "framer-motion";
 import NextBtn from "../components/nextBtn";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { starimgs } from "../components/starimgs.js";
 
 const Star = () => {
   const [star, setStar] = useState();
   const navigate = useNavigate();
+  const arrStar = [
+    "물병자리",
+    "물고기자리",
+    "양자리",
+    "황소자리",
+    "쌍둥이자리",
+    "게자리",
+    "사자자리",
+    "처녀자리",
+    "천칭자리",
+    "전갈자리",
+    "사수자리",
+    "염소자리",
+  ];
 
+  //별자리에 대한 gpt 운세 요청
   const apiPost = async () => {
-    try {
-      const res = await axios.post("/api/chat", {
-        message: "테스트중",
-      });
-      //   navigate("/end", { state: { result: res.data.result } });
-      console.log("star page", res.data);
-    } catch (err) {
-      console.log("star page / gpt api 요청 실패 > ", err);
+    if (star) {
+      console.log("D?D?D?", star.m_star);
+      try {
+        const res = await axios.post("/api/chat", {
+          selectedStar: star.m_star,
+        });
+        console.log("res", res);
+        navigate("/end", { state: { result: res.data } });
+        console.log("star page", res.data);
+      } catch (err) {
+        console.log("star page / gpt api 요청 실패 > ", err);
+      }
+    } else {
+      alert("아따마~ 별들아~ 너거들 별자리 눌러봐라~! 🐻👂🏻");
     }
   };
 
@@ -32,24 +54,19 @@ const Star = () => {
       <p>🐻👂🏻 : 머,, 잘왔따,, 운세보러왔나~ 너거들 별자리 함 클릭해봐라~</p>
       <div id="starAll">
         {/* 별자리 리스트업 */}
-        <div className="starLine">
-          <p>물병자리</p>
-          <p>물고기자리</p>
-          <p>양자리</p>
-          <p>황소자리</p>
-        </div>
-        <div className="starLine">
-          <p>쌍둥이자리</p>
-          <p>게자리</p>
-          <p>사자자리</p>
-          <p>처녀자리</p>
-        </div>
-        <div className="starLine">
-          <p>전칭자리</p>
-          <p>전갈자리</p>
-          <p>사수자리</p>
-          <p>염소자리</p>
-        </div>
+        {arrStar.map((m_star, id) => (
+          <div
+            className="starimgDiv"
+            onClick={() => {
+              setStar({ m_star });
+              console.log("지금 저장된 별자리 > ", star);
+            }}
+          >
+            {console.log(starimgs[m_star])}
+            <img src={starimgs[m_star]} className="starImg" />
+            <span>{m_star}</span>
+          </div>
+        ))}
       </div>
       <NextBtn onClick={() => apiPost()} innerText="다음" />
     </motion.div>
